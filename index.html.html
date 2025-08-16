@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR & Data Analytics Opportunity - Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .emoji {
+            font-size: 1.5em;
+            margin: 0 5px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .highlight-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .highlight-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .highlight-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00ff88;
+            font-weight: bold;
+        }
+        
+        .form-container {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            color: #333;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4facfe;
+            display: inline-block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #4facfe;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+        }
+        
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .radio-item,
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+        
+        .radio-item:hover,
+        .checkbox-item:hover {
+            border-color: #4facfe;
+            background: #f0f8ff;
+        }
+        
+        .radio-item input,
+        .checkbox-item input {
+            width: auto;
+            margin: 0;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-label {
+            display: block;
+            padding: 15px;
+            background: #f8f9fa;
+            border: 2px dashed #4facfe;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-upload-label:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 30px auto 0;
+            min-width: 200px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .location-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: #856404;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .radio-group,
+            .checkbox-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><span class="emoji">🚀</span> HR Opportunity Alert! <span class="emoji">🚀</span></h1>
+            <p>Join us as a <strong>young and ambitious HR enthusiast</strong> with a passion for <strong>data analytics</strong> <span class="emoji">📊💻</span></p>
+            
+            <div class="highlight-box">
+                <h3>What We're Looking For:</h3>
+                <ul class="highlight-list">
+                    <li>Basic knowledge of HR principles and practices</li>
+                    <li>Strong analytical skills (Excel, data visualization, reporting, etc.)</li>
+                    <li>Willingness to learn, grow, and be mentored</li>
+                    <li>Reside in/around Ikeja for easy access <span class="emoji">🚶‍♀️</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <form id="hrApplicationForm" action="https://formspree.io/f/xwpqjkwg" method="POST" enctype="multipart/form-data">
+                <!-- Personal Information -->
+                <div class="section">
+                    <h2 class="section-title">Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="location-note">
+                        <strong>📍 Location: Ikeja, Lagos</strong> - We're looking for candidates who can easily access our Ikeja location.
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">How close are you to Ikeja? <span class="required">*</span></label>
+                        <select id="location" name="location" required>
+                            <option value="">Select your proximity to Ikeja</option>
+                            <option value="within-ikeja">I live within Ikeja</option>
+                            <option value="15-mins">1-15 minutes from Ikeja</option>
+                            <option value="30-mins">16-30 minutes from Ikeja</option>
+                            <option value="45-mins">31-45 minutes from Ikeja</option>
+                            <option value="over-45">Over 45 minutes from Ikeja</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Education & Background -->
+                <div class="section">
+                    <h2 class="section-title">Education & Background</h2>
+                    
+                    <div class="form-group">
+                        <label for="qualification">Highest Qualification <span class="required">*</span></label>
+                        <select id="qualification" name="qualification" required>
+                            <option value="">Select your qualification</option>
+                            <option value="ssce">SSCE/WAEC/NECO</option>
+                            <option value="ond">OND/NCE</option>
+                            <option value="hnd">HND/B.Sc./B.A.</option>
+                            <option value="masters">M.Sc./M.A./MBA</option>
+                            <option value="phd">Ph.D.</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="institution">Institution <span class="required">*</span></label>
+                        <input type="text" id="institution" name="institution" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="graduationYear">Year of Graduation <span class="required">*</span></label>
+                        <input type="text" id="graduationYear" name="graduationYear" placeholder="e.g., 2023" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Any HR or Data-related Certifications?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-none" name="certifications" value="none">
+                                <label for="cert-none">None</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-excel" name="certifications" value="excel">
+                                <label for="cert-excel">Excel Certification</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-powerbi" name="certifications" value="powerbi">
+                                <label for="cert-powerbi">Power BI</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-hr" name="certifications" value="hr">
+                                <label for="cert-hr">HR Certification</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="cert-other" name="certifications" value="other">
+                                <label for="cert-other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HR & Analytics Skills -->
+                <div class="section">
+                    <h2 class="section-title">HR & Analytics Skills</h2>
+                    
+                    <div class="form-group">
+                        <label>Do you have basic HR knowledge? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="hr-yes" name="hrKnowledge" value="yes" required>
+                                <label for="hr-yes">Yes</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="hr-no" name="hrKnowledge" value="no" required>
+                                <label for="hr-no">No, but eager to learn</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hrExample">If yes, give a brief example of HR concept you know:</label>
+                        <textarea id="hrExample" name="hrExample" placeholder="e.g., recruitment process, performance management, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Excel Proficiency Level <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="excel-beginner" name="excelLevel" value="beginner" required>
+                                <label for="excel-beginner">Beginner</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="excel-intermediate" name="excelLevel" value="intermediate" required>
+                                <label for="excel-intermediate">Intermediate</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="excel-advanced" name="excelLevel" value="advanced" required>
+                                <label for="excel-advanced">Advanced</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Data Visualization Tools Experience:</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool-powerbi" name="dataTools" value="powerbi">
+                                <label for="tool-powerbi">Power BI</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool-tableau" name="dataTools" value="tableau">
+                                <label for="tool-tableau">Tableau</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool-excel-charts" name="dataTools" value="excel-charts">
+                                <label for="tool-excel-charts">Excel Charts</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="tool-none" name="dataTools" value="none">
+                                <label for="tool-none">None yet</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Any prior HR or related work experience?</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="exp-yes" name="experience" value="yes">
+                                <label for="exp-yes">Yes</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="exp-no" name="experience" value="no">
+                                <label for="exp-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experienceDetails">If yes, briefly describe your experience:</label>
+                        <textarea id="experienceDetails" name="experienceDetails" placeholder="Position, organization, duration, key responsibilities..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Motivation & Growth -->
+                <div class="section">
+                    <h2 class="section-title">Motivation & Growth</h2>
+                    
+                    <div class="form-group">
+                        <label for="motivation">Why are you interested in HR & data analytics? <span class="required">*</span></label>
+                        <textarea id="motivation" name="motivation" placeholder="Tell us what excites you about combining HR with data analytics..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Are you willing to undergo mentorship and continuous learning? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="mentorship-yes" name="mentorship" value="yes" required>
+                                <label for="mentorship-yes">Absolutely!</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="mentorship-no" name="mentorship" value="no" required>
+                                <label for="mentorship-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="learningExample">Describe one way you've demonstrated eagerness to learn a new skill: <span class="required">*</span></label>
+                        <textarea id="learningExample" name="learningExample" placeholder="Share an example of how you've actively learned something new..." required></textarea>
+                    </div>
+                </div>
+                
+                <!-- Additional Information -->
+                <div class="section">
+                    <h2 class="section-title">Additional Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="employmentStatus">Current Employment Status <span class="required">*</span></label>
+                        <select id="employmentStatus" name="employmentStatus" required>
+                            <option value="">Select your current status</option>
+                            <option value="fresh-graduate">Fresh Graduate</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="nysc">NYSC Corps Member</option>
+                            <option value="employed">Currently Employed</option>
+                            <option value="student">Student</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availability">When can you start? <span class="required">*</span></label>
+                        <select id="availability" name="availability" required>
+                            <option value="">Select availability</option>
+                            <option value="immediately">Immediately</option>
+                            <option value="1-week">Within 1 week</option>
+                            <option value="2-weeks">Within 2 weeks</option>
+                            <option value="1-month">Within 1 month</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cv">Upload your CV/Resume <span class="required">*</span></label>
+                        <div class="file-upload">
+                            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+                            <label for="cv" class="file-upload-label">
+                                📄 Click to upload CV (PDF, DOC, DOCX)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Application 🚀</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('hrApplicationForm').addEventListener('submit', function(e) {
+            // Basic form validation before submission
+            const requiredFields = this.querySelectorAll('[required]');
+            let allValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    allValid = false;
+                    field.style.borderColor = '#e74c3c';
+                } else {
+                    field.style.borderColor = '#e0e0e0';
+                }
+            });
+            
+            if (!allValid) {
+                e.preventDefault();
+                alert('⚠️ Please fill in all required fields.');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            submitBtn.innerHTML = 'Submitting... ⏳';
+            submitBtn.disabled = true;
+        });
+        
+        // File upload feedback
+        document.getElementById('cv').addEventListener('change', function(e) {
+            const label = this.nextElementSibling;
+            if (this.files.length > 0) {
+                label.innerHTML = `✅ ${this.files[0].name}`;
+                label.style.background = '#d4edda';
+                label.style.borderColor = '#28a745';
+            }
+        });
+        
+        // Clear "none" checkbox when others are selected
+        document.querySelectorAll('input[name="certifications"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.value !== 'none' && this.checked) {
+                    document.getElementById('cert-none').checked = false;
+                } else if (this.value === 'none' && this.checked) {
+                    document.querySelectorAll('input[name="certifications"]:not(#cert-none)').forEach(cb => cb.checked = false);
+                }
+            });
+        });
+        
+        document.querySelectorAll('input[name="dataTools"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.value !== 'none' && this.checked) {
+                    document.getElementById('tool-none').checked = false;
+                } else if (this.value === 'none' && this.checked) {
+                    document.querySelectorAll('input[name="dataTools"]:not(#tool-none)').forEach(cb => cb.checked = false);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
